@@ -7,6 +7,100 @@ Anggota:
 * Brian Akbar Wicaksana - 5025201207
 
 # VLSM
+- Langkah pertama yang dilakukan adalah me-label setiap subnet yang ada di topologi:
+![Subnet](https://user-images.githubusercontent.com/94432967/204087617-f955ab6f-afc4-459a-bed9-cb9d15b12923.png)
+
+Lalu, pada setiap subnet dihitung berapa jumlah ip yang dibutuhkan. Dari jumlah ip tersebut tentukan subnet mask paling ideal yang dapat menampung semua ip tersebut kemudian jumlahkan address yang terdapat pada semua subnet mask.
+| **Subnet** | **Jumlah IP** | **Netmask** | **Address yg dibutuhkan** |
+| :--------: | :-----------: | :---------: | :-----------------------: |
+| A1         | 1001          | /22         | 1024                      |
+| A2         | 2             | /30         | 4                         |
+| A3         | 51            | /26         | 64                        |
+| A4         | 2             | /30         | 4                         |
+| A5         | 2             | /30         | 4                         |
+| A6         | 2             | /30         | 4                         |
+| A7         | 271           | /23         | 512                       |
+| A8         | 2             | /30         | 4                         |
+| A9         | 251           | /24         | 256                       |
+| A10        | 2             | /30         | 4                         |
+| A11        | 121           | /25         | 128                       |
+| A12        | 2             | /30         | 4                         |
+| A13        | 212           | /24         | 256                       |
+| A14        | 2             | /30         | 4                         |
+| A15        | 501           | /23         | 512                       |
+| A16        | 2             | /30         | 4                         |
+| A17        | 121           | /25         | 128                       |
+| A18        | 71            | /25         | 128                       |
+| **Total**  |               | **/20**     | **3044**                  |
+
+- Langkah kedua yang dilakukan adalah pembagian subnet dengan menggunakan tree:
+![Tree](https://user-images.githubusercontent.com/94432967/204087639-35df1137-566b-4db7-8e26-807391f86822.png)
+
+Untuk gambar yang lebih jelas bisa dilihat [disini](https://miro.com/app/board/uXjVPBQwOeU=/?share_link_id=525325568234)
+
+- Langkah ketiga yang dilakukan adalah konfigurasi subnet dalam CPT yang telah ditentukan dalam tree.
+
+- Langkah keempat yang dilakukan adalah routing.
+
+**The Resonance**
+```
+10.24.0.64/26 via 10.24.0.5
+10.24.8.0/22 via 10.24.0.5
+10.24.0.0/30 via 10.24.0.5
+10.24.0.16/30 via 10.24.0.5
+10.24.2.0/24 via 10.24.0.5
+10.24.4.0/23 via 10.24.0.14
+10.24.0.128/25 via 10.24.0.22
+10.24.0.24/30 via 10.24.0.22
+10.24.3.0/24 via 10.24.0.22
+10.24.0.28/30 via 10.24.0.22
+10.24.6.0/23 via 10.24.0.22
+10.24.0.32/30 via 10.24.0.22
+10.24.1.0/25 via 10.24.0.22
+10.24.1.128/25 via 10.24.0.22
+```
+**The Order**
+```
+0.0.0.0/0 via 10.24.0.6
+10.24.8.0/22 via 10.24.0.1
+10.24.0.16/30 via 10.24.0.1
+10.24.2.0/24 via 10.24.0.1
+```
+**The Minister**
+```
+0.0.0.0/0 via 10.24.0.2
+10.24.2.0/24 via 10.24.0.18
+```
+**The Dauntless**
+```
+0.0.0.0/0 via 10.24.0.17
+```
+**The Magical**
+```
+0.0.0.0/0 via 10.24.0.13
+```
+**The Instrument**
+```
+0.0.0.0/0 via 10.24.0.21
+10.24.1.0/25 via 10.24.0.34
+10.24.1.128/25 via 10.24.0.34
+10.24.3.0/24 via 10.24.0.26
+10.24.0.28/30 via 10.24.0.26
+10.24.6.0/23 via 10.24.0.26
+```
+**The Profound**
+```
+0.0.0.0/0 via 10.24.0.33
+```
+**The Firefist**
+```
+0.0.0.0/0 via 10.24.0.25
+10.24.0.28/30 via 10.24.3.2
+```
+**The Queen**
+```
+0.0.0.0/0 via 10.24.3.1
+```
 
 # CIDR
 Langkah pertama, dilakukan pengelompokkan subnet-subnet hingga menjadi satu, dengan step:  
