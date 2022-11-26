@@ -383,3 +383,51 @@ iface eth0 inet static
 	netmask 255.255.255.252
 	gateway 10.24.33.1
 ```
+
+### Routing 
+- The Order 
+```
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.24.64.1
+route add -net 10.24.0.0 netmask 255.255.248.0 gw 10.24.8.1
+```
+- The Resonance 
+```
+route add -net 10.24.0.0 netmask 255.255.224.0 gw 10.24.64.2
+route add -net 10.24.136.0 netmask 255.255.254.0 gw 10.24.132.2
+route add -net 10.24.32.0 netmask 255.255.240.0 gw 10.24.130.2
+route add -net 10.24.128.0 netmask 255.255.254.0 gw 10.24.130.2
+```
+- The Minister
+```
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.24.8.2
+route add -net 10.24.4.0 netmask 255.255.255.0 gw 10.24.5.2
+```
+- The Dauntless
+```
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.24.5.1
+```
+- The Queen
+```
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.24.32.1
+```
+- The Fire First
+```
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.24.36.1
+route add -net 10.24.33.0 netmask 255.255.255.252 gw 10.24.32.2
+```
+- The Instrument 
+```
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.24.130.1
+route add -net 10.24.32.0 netmask 255.255.252.0 gw 10.24.36.2
+route add -net 10.24.128.0 netmask 255.255.255.0 gw 10.24.129.2
+```
+
+- The Magical
+```
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.24.132.1
+```
+
+- The Profound 
+```
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.24.129.1
+```
